@@ -1,0 +1,1561 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AYNI LINK DIGITAL S.A.C. | Internet Inalámbrico Solar & Tienda WISP Ayacucho</title>
+  
+  <!-- Google Fonts: Plus Jakarta Sans & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Plus Jakarta Sans', 'sans-serif'],
+          },
+          colors: {
+            ayni: {
+              navy: '#0A2540',
+              deep: '#0B3C5D',
+              blue: '#0077FF',
+              sky: '#00A8E8',
+              cyan: '#00E5FF',
+              light: '#F4F8FB',
+            }
+          },
+          boxShadow: {
+            'glass': '0 8px 32px 0 rgba(10, 37, 64, 0.08)',
+            'glow': '0 0 25px rgba(0, 168, 232, 0.35)',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #F8FAFC;
+      color: #0A2540;
+      overflow-x: hidden;
+    }
+    h1, h2, h3, h4, .font-display {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+    .glass-nav {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(10, 37, 64, 0.08);
+    }
+    .glass-card-dark {
+      background: rgba(11, 60, 93, 0.45);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(0, 229, 255, 0.2);
+    }
+    .hero-gradient {
+      background: radial-gradient(circle at 80% 20%, rgba(0, 168, 232, 0.22) 0%, transparent 45%),
+                  radial-gradient(circle at 15% 80%, rgba(0, 229, 255, 0.15) 0%, transparent 40%),
+                  linear-gradient(135deg, #07192C 0%, #0A2540 50%, #0B3C5D 100%);
+    }
+    .text-gradient {
+      background: linear-gradient(90deg, #00A8E8 0%, #00E5FF 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .text-gradient-dark {
+      background: linear-gradient(90deg, #0A2540 0%, #0077FF 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .circuit-pattern {
+      background-image: radial-gradient(rgba(0, 229, 255, 0.15) 1px, transparent 1px);
+      background-size: 24px 24px;
+    }
+    /* Custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #F1F5F9;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #CBD5E1;
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #0077FF;
+    }
+    @keyframes pulseSlow {
+      0%, 100% { transform: scale(1); opacity: 0.9; }
+      50% { transform: scale(1.04); opacity: 1; }
+    }
+    .animate-pulse-slow {
+      animation: pulseSlow 4s infinite ease-in-out;
+    }
+  </style>
+</head>
+<body class="antialiased selection:bg-ayni-cyan selection:text-ayni-navy">
+
+  <!-- Toast Notification Container -->
+  <div id="toast-container" class="fixed bottom-24 right-5 z-50 flex flex-col gap-2 pointer-events-none"></div>
+
+  <!-- 1. NAVBAR FIJA -->
+  <header class="fixed top-0 left-0 right-0 z-40 glass-nav transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        
+        <!-- Logo SVG Oficial Inspirado en Infinito + Manos Ayni + Circuitos -->
+        <a href="#inicio" class="flex items-center gap-3 group focus:outline-none">
+          <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-ayni-navy to-ayni-deep flex items-center justify-center p-1.5 shadow-md group-hover:shadow-glow transition-all">
+            <svg viewBox="0 0 120 68" class="w-full h-full" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="ayniGrad" x1="0" y1="34" x2="120" y2="34" gradientUnits="userSpaceOnUse">
+                  <stop offset="0%" stop-color="#0077FF"/>
+                  <stop offset="50%" stop-color="#00A8E8"/>
+                  <stop offset="100%" stop-color="#00E5FF"/>
+                </linearGradient>
+              </defs>
+              <!-- Lazo izquierdo humano / Ayni -->
+              <path d="M44 16C34 8 16 11 11 26C6 41 18 57 34 55C45 53 53 43 60 34" stroke="url(#ayniGrad)" stroke-width="8" stroke-linecap="round"/>
+              <!-- Lazo derecho tecnológico / Circuito -->
+              <path d="M76 52C86 60 104 57 109 42C114 27 102 11 86 13C75 15 67 25 60 34" stroke="url(#ayniGrad)" stroke-width="8" stroke-linecap="round"/>
+              <!-- Manos entrelazadas centrales -->
+              <path d="M48 31L58 24C61 22 65 23 67 26L72 33" stroke="#FFFFFF" stroke-width="3.5" stroke-linecap="round"/>
+              <path d="M72 37L62 44C59 46 55 45 53 42L48 35" stroke="#00E5FF" stroke-width="3.5" stroke-linecap="round"/>
+              <!-- Nodos de circuito lado derecho -->
+              <circle cx="96" cy="24" r="2.8" fill="#FFFFFF"/>
+              <circle cx="101" cy="36" r="2.8" fill="#FFFFFF"/>
+              <circle cx="91" cy="46" r="2.8" fill="#FFFFFF"/>
+              <path d="M84 24H93M88 36H98M82 46H88" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="flex flex-col">
+            <span class="font-display font-extrabold text-lg sm:text-xl tracking-tight text-ayni-navy leading-none">
+              AYNI LINK
+            </span>
+            <span class="text-[11px] font-bold tracking-[0.22em] text-ayni-blue uppercase mt-0.5">
+              DIGITAL S.A.C.
+            </span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation -->
+        <nav class="hidden md:flex items-center gap-7 text-sm font-semibold text-slate-700">
+          <a href="#tienda" onclick="filterCatalog('planes')" class="hover:text-ayni-blue transition-colors">Planes</a>
+          <a href="#tienda" onclick="filterCatalog('kits')" class="hover:text-ayni-blue transition-colors">Tienda de Kits</a>
+          <a href="#cobertura" class="hover:text-ayni-blue transition-colors">Cobertura Ayacucho</a>
+          <a href="#tecnologia" class="hover:text-ayni-blue transition-colors">Nosotros & Energía</a>
+          <a href="#aynibot-section" class="inline-flex items-center gap-1.5 text-ayni-blue bg-blue-50 hover:bg-blue-100 px-3 py-1.5 rounded-full transition-colors">
+            <i data-lucide="sparkles" class="w-4 h-4"></i> Asistente IA
+          </a>
+        </nav>
+
+        <!-- Actions: Cart + Mobile Menu -->
+        <div class="flex items-center gap-3">
+          <button onclick="toggleCart(true)" class="relative inline-flex items-center gap-2 bg-ayni-navy hover:bg-ayni-deep text-white px-4 py-2.5 rounded-xl font-semibold text-sm shadow-sm transition-all active:scale-95">
+            <i data-lucide="shopping-cart" class="w-4 h-4 text-ayni-cyan"></i>
+            <span class="hidden sm:inline">Pedido</span>
+            <span id="cart-badge" class="inline-flex items-center justify-center min-w-[20px] h-5 px-1.5 text-xs font-bold bg-ayni-cyan text-ayni-navy rounded-full">
+              0
+            </span>
+          </button>
+
+          <!-- Mobile Hamburger -->
+          <button id="mobile-menu-btn" onclick="toggleMobileMenu()" class="md:hidden p-2.5 rounded-xl text-ayni-navy hover:bg-slate-100 focus:outline-none" aria-label="Menú">
+            <i data-lucide="menu" class="w-6 h-6"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Menu Dropdown -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-slate-100 px-4 pt-3 pb-5 space-y-2 shadow-lg">
+      <a href="#tienda" onclick="filterCatalog('planes'); toggleMobileMenu()" class="block px-3 py-2.5 rounded-xl font-semibold text-slate-700 hover:bg-slate-50">Planes Mensuales</a>
+      <a href="#tienda" onclick="filterCatalog('kits'); toggleMobileMenu()" class="block px-3 py-2.5 rounded-xl font-semibold text-slate-700 hover:bg-slate-50">Tienda de Kits y Equipos</a>
+      <a href="#cobertura" onclick="toggleMobileMenu()" class="block px-3 py-2.5 rounded-xl font-semibold text-slate-700 hover:bg-slate-50">Cobertura Ayacucho</a>
+      <a href="#tecnologia" onclick="toggleMobileMenu()" class="block px-3 py-2.5 rounded-xl font-semibold text-slate-700 hover:bg-slate-50">Tecnología Solar & Nosotros</a>
+      <a href="#aynibot-section" onclick="toggleMobileMenu()" class="flex items-center gap-2 px-3 py-2.5 rounded-xl font-semibold text-ayni-blue bg-blue-50">
+        <i data-lucide="sparkles" class="w-4 h-4"></i> Consultar con AyniBot IA
+      </a>
+    </div>
+  </header>
+
+  <!-- 2. HERO SECTION -->
+  <section id="inicio" class="relative pt-28 pb-20 lg:pt-36 lg:pb-28 hero-gradient text-white overflow-hidden">
+    <div class="absolute inset-0 circuit-pattern opacity-40 pointer-events-none"></div>
+    
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="grid lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- Hero Left Copy -->
+        <div class="lg:col-span-7 space-y-6">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-card-dark text-xs sm:text-sm font-medium text-ayni-cyan">
+            <span class="w-2 h-2 rounded-full bg-ayni-cyan animate-ping"></span>
+            Proveedor WISP Rural en Huamanga, Ayacucho – Perú
+          </div>
+
+          <h1 class="text-3xl sm:text-5xl lg:text-[3.35rem] font-extrabold leading-[1.12] tracking-tight">
+            Conectando las comunidades de Ayacucho con <span class="text-gradient">tecnología solar e inalámbrica</span>
+          </h1>
+
+          <p class="text-base sm:text-lg text-slate-300 max-w-2xl leading-relaxed">
+            Internet de tarifa plana ilimitada sin contratos forzosos. Nuestros nodos base fotovoltaicos garantizan conexión continua incluso durante cortes de energía eléctrica rural, con soporte técnico presencial local en menos de 24 horas.
+          </p>
+
+          <!-- Value Pills -->
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
+            <div class="glass-card-dark rounded-2xl p-3.5 flex items-center gap-3">
+              <div class="w-10 h-10 rounded-xl bg-ayni-blue/30 flex items-center justify-center text-ayni-cyan shrink-0">
+                <i data-lucide="infinity" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <p class="text-xs text-slate-300">Navegación</p>
+                <p class="text-sm font-bold text-white">100% Ilimitada</p>
+              </div>
+            </div>
+
+            <div class="glass-card-dark rounded-2xl p-3.5 flex items-center gap-3">
+              <div class="w-10 h-10 rounded-xl bg-amber-500/20 flex items-center justify-center text-amber-300 shrink-0">
+                <i data-lucide="sun" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <p class="text-xs text-slate-300">Autonomía</p>
+                <p class="text-sm font-bold text-white">Nodos Solares 24/7</p>
+              </div>
+            </div>
+
+            <div class="glass-card-dark rounded-2xl p-3.5 flex items-center gap-3">
+              <div class="w-10 h-10 rounded-xl bg-emerald-500/20 flex items-center justify-center text-emerald-300 shrink-0">
+                <i data-lucide="wrench" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <p class="text-xs text-slate-300">Soporte Local</p>
+                <p class="text-sm font-bold text-white">Visita en &lt; 24h</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- CTA Buttons -->
+          <div class="flex flex-col sm:flex-row gap-4 pt-3">
+            <a href="#tienda" class="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-ayni-blue to-ayni-sky hover:from-ayni-sky hover:to-ayni-cyan hover:text-ayni-navy text-white font-bold px-7 py-4 rounded-2xl shadow-glow transition-all duration-300 text-center">
+              <i data-lucide="shopping-bag" class="w-5 h-5"></i>
+              Explorar Planes y Tienda
+            </a>
+            <a href="#aynibot-section" class="inline-flex items-center justify-center gap-2 glass-card-dark hover:bg-white/15 text-white font-semibold px-7 py-4 rounded-2xl transition-all duration-300 text-center">
+              <i data-lucide="bot" class="w-5 h-5 text-ayni-cyan"></i>
+              Consultar Cobertura con IA
+            </a>
+          </div>
+        </div>
+
+        <!-- Hero Right Visual Card (Interactive Telemetry & Node Showcase) -->
+        <div class="lg:col-span-5">
+          <div class="relative rounded-3xl glass-card-dark p-6 sm:p-8 shadow-2xl border border-ayni-cyan/30 animate-pulse-slow">
+            <div class="flex items-center justify-between pb-5 border-b border-white/10">
+              <div class="flex items-center gap-3">
+                <div class="w-3 h-3 rounded-full bg-emerald-400"></div>
+                <span class="text-xs font-bold uppercase tracking-wider text-ayni-cyan">Nodo Base San Juan Bautista</span>
+              </div>
+              <span class="text-xs bg-white/10 px-2.5 py-1 rounded-lg font-mono text-slate-200">SLA 98.5%</span>
+            </div>
+
+            <!-- Visual SVG Diagram of Solar WISP Link -->
+            <div class="my-6 bg-ayni-navy/70 rounded-2xl p-5 border border-white/10">
+              <svg viewBox="0 0 360 150" class="w-full h-auto" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Sun & Solar Panel -->
+                <circle cx="48" cy="30" r="14" fill="#FBBF24" fill-opacity="0.25"/>
+                <circle cx="48" cy="30" r="8" fill="#FBBF24"/>
+                <rect x="26" y="54" width="44" height="24" rx="4" fill="#0077FF" stroke="#00E5FF" stroke-width="1.5"/>
+                <line x1="26" y1="66" x2="70" y2="66" stroke="#00E5FF" stroke-width="1"/>
+                <line x1="48" y1="54" x2="48" y2="78" stroke="#00E5FF" stroke-width="1"/>
+                <text x="48" y="94" fill="#94A3B8" font-size="9" text-anchor="middle" font-family="Inter">Panel 450W MPPT</text>
+
+                <!-- Tower -->
+                <path d="M125 125L140 35L155 125" stroke="#00E5FF" stroke-width="2.5" stroke-linejoin="round"/>
+                <line x1="130" y1="95" x2="150" y2="95" stroke="#00E5FF" stroke-width="1.5"/>
+                <line x1="134" y1="68" x2="146" y2="68" stroke="#00E5FF" stroke-width="1.5"/>
+                <circle cx="140" cy="32" r="6" fill="#00E5FF"/>
+                <text x="140" y="140" fill="#E2E8F0" font-size="10" font-weight="bold" text-anchor="middle" font-family="Inter">Torre 5 GHz</text>
+
+                <!-- Wireless Waves -->
+                <path d="M168 38C185 32 205 32 225 42" stroke="#00E5FF" stroke-width="2" stroke-dasharray="4 4"/>
+                <path d="M172 48C190 42 210 42 230 52" stroke="#00A8E8" stroke-width="2" stroke-dasharray="4 4"/>
+                <rect x="176" y="14" width="66" height="18" rx="9" fill="#00E5FF" fill-opacity="0.15"/>
+                <text x="209" y="26" fill="#00E5FF" font-size="9" font-weight="bold" text-anchor="middle" font-family="Inter">LoS Limpia</text>
+
+                <!-- Rural House + CPE -->
+                <path d="M265 82L295 60L325 82V122H265V82Z" fill="#0B3C5D" stroke="#FFFFFF" stroke-width="1.8"/>
+                <rect x="288" y="98" width="14" height="24" fill="#00A8E8"/>
+                <!-- CPE Antenna on Roof -->
+                <line x1="274" y1="74" x2="274" y2="54" stroke="#FFFFFF" stroke-width="2.5"/>
+                <ellipse cx="268" cy="54" rx="5" ry="9" fill="#00E5FF" stroke="#FFFFFF" stroke-width="1.5"/>
+                <text x="295" y="140" fill="#E2E8F0" font-size="10" font-weight="bold" text-anchor="middle" font-family="Inter">Hogar / Bodega</text>
+              </svg>
+            </div>
+
+            <div class="space-y-3 text-sm">
+              <div class="flex justify-between items-center bg-white/5 px-4 py-2.5 rounded-xl">
+                <span class="text-slate-300">Planes Tarifa Plana</span>
+                <span class="font-bold text-ayni-cyan">Desde S/ 60.00 / mes</span>
+              </div>
+              <div class="flex justify-between items-center bg-white/5 px-4 py-2.5 rounded-xl">
+                <span class="text-slate-300">Pagos Rápidos</span>
+                <span class="font-semibold text-white flex items-center gap-1.5">
+                  <span class="px-2 py-0.5 rounded bg-purple-600 text-xs font-bold">Yape</span>
+                  <span class="px-2 py-0.5 rounded bg-teal-500 text-xs font-bold">Plin</span>
+                </span>
+              </div>
+              <div class="flex justify-between items-center bg-white/5 px-4 py-2.5 rounded-xl">
+                <span class="text-slate-300">Instalación en Campo</span>
+                <span class="font-semibold text-emerald-300">Equipos Preconfigurados (4h)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. TIENDA ONLINE (PLANES DE INTERNET + CATÁLOGO DE KITS Y EQUIPOS BOM) -->
+  <section id="tienda" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-3xl mx-auto mb-12">
+      <span class="text-xs font-bold uppercase tracking-widest text-ayni-blue bg-blue-50 px-3.5 py-1.5 rounded-full">
+        Catálogo Oficial & Tarifas Transparentes
+      </span>
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-ayni-navy mt-3">
+        Tienda Digital & Planes de Conectividad
+      </h2>
+      <p class="text-slate-600 mt-3 text-base sm:text-lg">
+        Elige tu plan mensual ilimitado o adquiere el kit de instalación estandarizado con tecnología Ubiquiti PowerBeam AC GEN2 de largo alcance.
+      </p>
+    </div>
+
+    <!-- Filter Pills -->
+    <div class="flex flex-wrap items-center justify-center gap-2.5 mb-10" id="catalog-filters">
+      <button onclick="filterCatalog('todos')" data-filter="todos" class="filter-btn active px-5 py-2.5 rounded-xl text-sm font-bold transition-all bg-ayni-navy text-white shadow-sm">
+        Todos los Productos
+      </button>
+      <button onclick="filterCatalog('planes')" data-filter="planes" class="filter-btn px-5 py-2.5 rounded-xl text-sm font-bold transition-all bg-white text-slate-700 hover:bg-slate-100 border border-slate-200">
+        Planes Mensuales (S/ 60 - S/ 90)
+      </button>
+      <button onclick="filterCatalog('kits')" data-filter="kits" class="filter-btn px-5 py-2.5 rounded-xl text-sm font-bold transition-all bg-white text-slate-700 hover:bg-slate-100 border border-slate-200">
+        Kits de Instalación
+      </button>
+      <button onclick="filterCatalog('equipos')" data-filter="equipos" class="filter-btn px-5 py-2.5 rounded-xl text-sm font-bold transition-all bg-white text-slate-700 hover:bg-slate-100 border border-slate-200">
+        Equipos y Accesorios
+      </button>
+    </div>
+
+    <!-- Catalog Grid (Rendered by JS) -->
+    <div id="catalog-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
+      <!-- Cards injected dynamically -->
+    </div>
+  </section>
+
+  <!-- 5. DIFERENCIADORES TECNOLÓGICOS & TABLA COMPARATIVA -->
+  <section id="tecnologia" class="py-20 bg-ayni-navy text-white relative overflow-hidden">
+    <div class="absolute inset-0 circuit-pattern opacity-25 pointer-events-none"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      
+      <div class="text-center max-w-3xl mx-auto mb-14">
+        <span class="text-xs font-bold uppercase tracking-widest text-ayni-cyan bg-white/10 px-3.5 py-1.5 rounded-full">
+          Ingeniería Rural de Alto Rendimiento
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold mt-3">
+          ¿Por qué elegir <span class="text-gradient">AYNI LINK DIGITAL</span>?
+        </h2>
+        <p class="text-slate-300 mt-3 text-base">
+          Diseñamos nuestra infraestructura pensando en la geografía y clima de Ayacucho, combinando energía limpia y soporte técnico humano de nuestra propia región.
+        </p>
+      </div>
+
+      <!-- 3 Pillars -->
+      <div class="grid md:grid-cols-3 gap-7 mb-16">
+        <div class="glass-card-dark rounded-3xl p-7 hover:border-ayni-cyan transition-all">
+          <div class="w-14 h-14 rounded-2xl bg-amber-400/20 text-amber-300 flex items-center justify-center mb-5">
+            <i data-lucide="sun-medium" class="w-7 h-7"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-2">Respaldo Solar Fotovoltaico</h3>
+          <p class="text-slate-300 text-sm leading-relaxed">
+            Nuestras estaciones base cuentan con paneles solares de <strong>450W, controladores MPPT y baterías de ciclo profundo</strong>. Si se va la luz en tu comunidad, tu internet sigue funcionando sin interrupciones.
+          </p>
+        </div>
+
+        <div class="glass-card-dark rounded-3xl p-7 hover:border-ayni-cyan transition-all">
+          <div class="w-14 h-14 rounded-2xl bg-ayni-cyan/20 text-ayni-cyan flex items-center justify-center mb-5">
+            <i data-lucide="headset" class="w-7 h-7"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-2">Soporte Local en &lt; 24 Horas</h3>
+          <p class="text-slate-300 text-sm leading-relaxed">
+            Olvídate de esperar días por técnicos de Lima. Nuestra base operativa en <strong>San Juan Bautista (Huamanga)</strong> gestiona tus reportes con tickets GLPI y atención directa por WhatsApp 24/7.
+          </p>
+        </div>
+
+        <div class="glass-card-dark rounded-3xl p-7 hover:border-ayni-cyan transition-all">
+          <div class="w-14 h-14 rounded-2xl bg-emerald-400/20 text-emerald-300 flex items-center justify-center mb-5">
+            <i data-lucide="shield-check" class="w-7 h-7"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-2">Transparencia y Seguridad SST</h3>
+          <p class="text-slate-300 text-sm leading-relaxed">
+            Tarifa plana real sin reducción de velocidad ni cláusulas ocultas. Instalaciones ejecutadas por personal certificado con EPP normado para trabajo en altura y pozo a tierra.
+          </p>
+        </div>
+      </div>
+
+      <!-- Interactive Comparison Table -->
+      <div class="bg-white text-ayni-navy rounded-3xl shadow-2xl overflow-hidden border border-slate-200">
+        <div class="p-6 sm:p-8 bg-slate-50 border-b border-slate-200 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div>
+            <h3 class="text-xl sm:text-2xl font-extrabold">Matriz Comparativa del Mercado Rural</h3>
+            <p class="text-sm text-slate-600 mt-1">Compara nuestro servicio WISP frente a otras alternativas disponibles en zonas rurales.</p>
+          </div>
+          <span class="inline-flex items-center gap-1.5 text-xs font-bold bg-ayni-navy text-ayni-cyan px-3.5 py-2 rounded-xl self-start">
+            <i data-lucide="award" class="w-4 h-4"></i> Estándar Ayni Link S.A.C.
+          </span>
+        </div>
+
+        <div class="overflow-x-auto">
+          <table class="w-full text-left border-collapse min-w-[680px]">
+            <thead>
+              <tr class="border-b border-slate-200 text-xs uppercase tracking-wider text-slate-500 bg-white">
+                <th class="py-4 px-6 font-bold">Criterio</th>
+                <th class="py-4 px-6 font-extrabold text-ayni-blue bg-blue-50/70">AYNI LINK DIGITAL S.A.C.</th>
+                <th class="py-4 px-6 font-bold">Operadores Móviles (4G)</th>
+                <th class="py-4 px-6 font-bold">ISP Informales</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-200 text-sm">
+              <tr>
+                <td class="py-4 px-6 font-bold text-slate-800">Precio Mensual</td>
+                <td class="py-4 px-6 bg-blue-50/50 font-semibold text-ayni-navy">
+                  <span class="text-ayni-blue font-extrabold">S/ 60 - S/ 90 (Tarifa Plana)</span><br>
+                  <span class="text-xs text-slate-600">Cobro fijo predecible sin sorpresas.</span>
+                </td>
+                <td class="py-4 px-6 text-slate-600">
+                  S/ 30 - S/ 70<br>
+                  <span class="text-xs">Recargas frecuentes o planes limitados.</span>
+                </td>
+                <td class="py-4 px-6 text-slate-600">
+                  S/ 50 - S/ 80<br>
+                  <span class="text-xs">Precios variables sin contrato ni comprobante.</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="py-4 px-6 font-bold text-slate-800">Límite de Consumo</td>
+                <td class="py-4 px-6 bg-blue-50/50 font-semibold text-ayni-navy">
+                  <span class="inline-flex items-center gap-1 text-emerald-600 font-extrabold"><i data-lucide="check-circle-2" class="w-4 h-4"></i> Ilimitado (Sin degradación)</span><br>
+                  <span class="text-xs text-slate-600">Ideal para Zoom, clases, streaming y Yape/Plin.</span>
+                </td>
+                <td class="py-4 px-6 text-slate-600">
+                  Bolsas reducidas en GB<br>
+                  <span class="text-xs">Se agotan rápido y bajan la velocidad.</span>
+                </td>
+                <td class="py-4 px-6 text-slate-600">
+                  Ilimitado inestable<br>
+                  <span class="text-xs">Alta saturación por reventa excesiva.</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="py-4 px-6 font-bold text-slate-800">Soporte Técnico</td>
+                <td class="py-4 px-6 bg-blue-50/50 font-semibold text-ayni-navy">
+                  <span class="text-ayni-blue font-extrabold">Local en Ayacucho (&lt; 24 horas)</span><br>
+                  <span class="text-xs text-slate-600">WhatsApp 24/7 y visitas el mismo día.</span>
+                </td>
+                <td class="py-4 px-6 text-slate-600">
+                  Call Center autómata (72h - 96h)<br>
+                  <span class="text-xs">Demoras de días para técnicos en zona rural.</span>
+                </td>
+                <td class="py-4 px-6 text-slate-600">
+                  Inexistente / Informal<br>
+                  <span class="text-xs">Depende de la disponibilidad del revendedor.</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="py-4 px-6 font-bold text-slate-800">Respaldo Energético</td>
+                <td class="py-4 px-6 bg-blue-50/50 font-semibold text-ayni-navy">
+                  <span class="inline-flex items-center gap-1 text-amber-600 font-extrabold"><i data-lucide="sun" class="w-4 h-4"></i> Nodos Base Fotovoltaicos</span><br>
+                  <span class="text-xs text-slate-600">Paneles y baterías operan ante apagones rurales.</span>
+                </td>
+                <td class="py-4 px-6 text-slate-600">
+                  Dependiente de Red Eléctrica<br>
+                  <span class="text-xs">La celda móvil cae tras pocas horas sin luz.</span>
+                </td>
+                <td class="py-4 px-6 text-slate-600">
+                  Sin respaldo de energía<br>
+                  <span class="text-xs">Corte inmediato ante apagones locales.</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 6. VERIFICADOR DE COBERTURA Y LÍNEA DE VISTA (LoS) EN AYACUCHO -->
+  <section id="cobertura" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-12">
+      <div class="max-w-2xl">
+        <span class="text-xs font-bold uppercase tracking-widest text-ayni-blue bg-blue-50 px-3.5 py-1.5 rounded-full">
+          Rutas Rurales & Base Operativa
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-ayni-navy mt-3">
+          Cobertura WISP & Factibilidad en Ayacucho
+        </h2>
+        <p class="text-slate-600 mt-3 text-base">
+          Desde nuestra base operativa en <strong>San Juan Bautista (Huamanga)</strong> irradiamos señal inalámbrica de 5 GHz hacia distritos y centros poblados periurbanos. Selecciona tu zona para solicitar tu estudio gratuito de Línea de Vista (LoS).
+        </p>
+      </div>
+      <div class="bg-white border border-slate-200 rounded-2xl p-4 flex items-center gap-3 shadow-sm">
+        <div class="w-10 h-10 rounded-xl bg-blue-50 text-ayni-blue flex items-center justify-center shrink-0">
+          <i data-lucide="map-pin" class="w-5 h-5"></i>
+        </div>
+        <div class="text-xs">
+          <p class="font-bold text-ayni-navy">Base Operativa & NOC</p>
+          <p class="text-slate-500">San Juan Bautista, Huamanga – Ayacucho</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Districts Grid -->
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6" id="coverage-grid">
+      <!-- Populated via JS -->
+    </div>
+  </section>
+
+  <!-- 7. SECCIÓN DEDICADA: ASISTENTE VIRTUAL INTELIGENTE "AYNIBOT" (GEMINI API) -->
+  <section id="aynibot-section" class="py-20 bg-gradient-to-b from-slate-100 to-white border-t border-slate-200/80">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-10">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-ayni-navy text-ayni-cyan text-xs font-bold mb-3">
+          <i data-lucide="sparkles" class="w-4 h-4"></i> Impulsado por Inteligencia Artificial
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-ayni-navy">
+          Habla con <span class="text-gradient-dark">AyniBot</span>, tu Asesor Técnico
+        </h2>
+        <p class="text-slate-600 mt-2 text-base">
+          ¿Dudas sobre qué plan conviene para tu bodega o familia? ¿Quieres saber si hay Línea de Vista (LoS) en tu comunidad o cómo funcionan nuestros nodos solares? Pregúntale ahora mismo.
+        </p>
+      </div>
+
+      <!-- Embedded AI Chat Interface -->
+      <div class="bg-white rounded-3xl shadow-glass border border-slate-200 overflow-hidden">
+        <!-- Header -->
+        <div class="bg-ayni-navy text-white px-6 py-4 flex items-center justify-between">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-2xl bg-gradient-to-tr from-ayni-blue to-ayni-cyan flex items-center justify-center text-ayni-navy font-extrabold shadow-md">
+              <i data-lucide="bot" class="w-6 h-6"></i>
+            </div>
+            <div>
+              <h3 class="font-bold text-base flex items-center gap-2">
+                AyniBot IA
+                <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+              </h3>
+              <p class="text-xs text-slate-300">Asesor Virtual de AYNI LINK DIGITAL S.A.C.</p>
+            </div>
+          </div>
+          <button onclick="resetChat()" class="text-xs text-slate-300 hover:text-white flex items-center gap-1 px-3 py-1.5 rounded-lg bg-white/10 transition-colors">
+            <i data-lucide="rotate-ccw" class="w-3.5 h-3.5"></i> Reiniciar
+          </button>
+        </div>
+
+        <!-- Chat Messages -->
+        <div id="ai-chat-messages" class="p-6 h-[360px] overflow-y-auto space-y-4 bg-slate-50/70">
+          <!-- Initial Welcome Message -->
+          <div class="flex items-start gap-3">
+            <div class="w-8 h-8 rounded-xl bg-ayni-navy text-ayni-cyan flex items-center justify-center shrink-0 mt-0.5">
+              <i data-lucide="bot" class="w-4 h-4"></i>
+            </div>
+            <div class="bg-white border border-slate-200 rounded-2xl rounded-tl-none p-4 text-sm text-slate-700 shadow-sm max-w-[85%] leading-relaxed">
+              ¡Allillanchu! 👋 Soy <strong>AyniBot</strong>, el asistente inteligente de <strong>AYNI LINK DIGITAL S.A.C.</strong> en Ayacucho. 
+              <br><br>
+              Puedo ayudarte a elegir tu plan ideal (de S/ 60 a S/ 90), explicarte qué incluye el <strong>Kit de Instalación Ubiquiti (S/ 798)</strong>, verificar cobertura en distritos como Quinua, Socos, Chiara, Vinchos o San José de Ticllas, o contarte cómo nuestros <strong>nodos solares</strong> mantienen tu red activa sin luz eléctrica. ¿En qué te ayudo hoy?
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick Prompts -->
+        <div class="px-6 py-3 bg-white border-t border-slate-100 flex flex-wrap gap-2">
+          <button onclick="sendQuickPrompt('Tengo una bodega en Quinua y cobro con Yape/Plin, ¿qué plan y kit necesito?')" class="text-xs bg-blue-50 hover:bg-blue-100 text-ayni-blue font-semibold px-3 py-1.5 rounded-full transition-colors">
+            🏪 Plan para bodega con Yape/Plin
+          </button>
+          <button onclick="sendQuickPrompt('¿Cómo funciona el respaldo solar si se va la luz en mi comunidad?')" class="text-xs bg-amber-50 hover:bg-amber-100 text-amber-800 font-semibold px-3 py-1.5 rounded-full transition-colors">
+            ☀️ ¿Cómo funciona el respaldo solar?
+          </button>
+          <button onclick="sendQuickPrompt('¿Qué es la Línea de Vista (LoS) y cómo solicito instalación en Socos?')" class="text-xs bg-emerald-50 hover:bg-emerald-100 text-emerald-800 font-semibold px-3 py-1.5 rounded-full transition-colors">
+            📡 Requisitos de Línea de Vista (LoS)
+          </button>
+        </div>
+
+        <!-- Input Bar -->
+        <form onsubmit="handleChatSubmit(event)" class="p-4 bg-white border-t border-slate-200 flex items-center gap-3">
+          <input 
+            type="text" 
+            id="ai-chat-input" 
+            placeholder="Escribe tu consulta sobre planes, kits, cobertura en Ayacucho..." 
+            class="flex-1 bg-slate-100 border border-transparent focus:border-ayni-blue focus:bg-white rounded-xl px-4 py-3 text-sm text-slate-800 outline-none transition-all"
+            required
+          />
+          <button type="submit" id="ai-send-btn" class="bg-ayni-navy hover:bg-ayni-blue text-white font-bold px-5 py-3 rounded-xl inline-flex items-center gap-2 transition-all shrink-0">
+            <span class="hidden sm:inline">Enviar</span>
+            <i data-lucide="send" class="w-4 h-4"></i>
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. FOOTER ELEGANTE & VALORES INSTITUCIONALES -->
+  <footer class="bg-[#061525] text-slate-300 pt-16 pb-10 border-t border-white/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Institutional Values Strip -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pb-12 border-b border-white/10">
+        <div class="bg-white/5 rounded-2xl p-4 border border-white/5">
+          <div class="flex items-center gap-2 text-ayni-cyan font-bold text-sm mb-1">
+            <i data-lucide="users" class="w-4 h-4"></i> Compromiso Comunitario
+          </div>
+          <p class="text-xs text-slate-400">Promovemos la inclusión digital en familias, escuelas y comercios rurales de Ayacucho.</p>
+        </div>
+        <div class="bg-white/5 rounded-2xl p-4 border border-white/5">
+          <div class="flex items-center gap-2 text-ayni-cyan font-bold text-sm mb-1">
+            <i data-lucide="file-check-2" class="w-4 h-4"></i> Transparencia Técnica
+          </div>
+          <p class="text-xs text-slate-400">Claridad total en parámetros reales de velocidad, tarifas planas y condiciones del servicio.</p>
+        </div>
+        <div class="bg-white/5 rounded-2xl p-4 border border-white/5">
+          <div class="flex items-center gap-2 text-ayni-cyan font-bold text-sm mb-1">
+            <i data-lucide="hard-hat" class="w-4 h-4"></i> Seguridad Operativa
+          </div>
+          <p class="text-xs text-slate-400">Cumplimiento estricto de normas SST, trabajo seguro en altura y protección eléctrica.</p>
+        </div>
+        <div class="bg-white/5 rounded-2xl p-4 border border-white/5">
+          <div class="flex items-center gap-2 text-ayni-cyan font-bold text-sm mb-1">
+            <i data-lucide="leaf" class="w-4 h-4"></i> Sostenibilidad Ambiental
+          </div>
+          <p class="text-xs text-slate-400">Energía limpia fotovoltaica en nodos base y plan de reciclaje responsable de baterías y RAEE.</p>
+        </div>
+      </div>
+
+      <!-- Main Footer Columns -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 py-12">
+        <div class="space-y-4">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-ayni-deep flex items-center justify-center p-1.5 border border-ayni-cyan/30">
+              <svg viewBox="0 0 120 68" class="w-full h-full" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M44 16C34 8 16 11 11 26C6 41 18 57 34 55C45 53 53 43 60 34" stroke="#00A8E8" stroke-width="9" stroke-linecap="round"/>
+                <path d="M76 52C86 60 104 57 109 42C114 27 102 11 86 13C75 15 67 25 60 34" stroke="#00E5FF" stroke-width="9" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div>
+              <span class="font-display font-extrabold text-lg text-white block leading-none">AYNI LINK</span>
+              <span class="text-[10px] font-bold tracking-[0.2em] text-ayni-cyan uppercase">DIGITAL S.A.C.</span>
+            </div>
+          </div>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            Conectividad inalámbrica rural (WISP) y equipamiento de telecomunicaciones de alto rendimiento para Ayacucho. Acortando la brecha digital con reciprocidad y tecnología.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="text-white font-bold text-sm uppercase tracking-wider mb-4">Navegación</h4>
+          <ul class="space-y-2.5 text-sm text-slate-400">
+            <li><a href="#tienda" onclick="filterCatalog('planes')" class="hover:text-ayni-cyan transition-colors">Planes Residenciales y Negocios</a></li>
+            <li><a href="#tienda" onclick="filterCatalog('kits')" class="hover:text-ayni-cyan transition-colors">Kit de Instalación BOM (S/ 798)</a></li>
+            <li><a href="#cobertura" class="hover:text-ayni-cyan transition-colors">Mapa de Cobertura Ayacucho</a></li>
+            <li><a href="#tecnologia" class="hover:text-ayni-cyan transition-colors">Nodos Solares & Comparativa</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-white font-bold text-sm uppercase tracking-wider mb-4">Base Operativa & Soporte</h4>
+          <ul class="space-y-3 text-xs text-slate-400">
+            <li class="flex items-start gap-2.5">
+              <i data-lucide="map-pin" class="w-4 h-4 text-ayni-cyan shrink-0 mt-0.5"></i>
+              <span>Distrito de San Juan Bautista, Provincia de Huamanga, Región Ayacucho – Perú.</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <i data-lucide="clock" class="w-4 h-4 text-ayni-cyan shrink-0 mt-0.5"></i>
+              <span>Atención Virtual y Soporte WhatsApp: <strong>24/7</strong><br>Visitas técnicas en campo: Lunes a Sábado (SLA &lt; 24h).</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <i data-lucide="wallet" class="w-4 h-4 text-ayni-cyan shrink-0 mt-0.5"></i>
+              <span>Medios de pago digitales: <strong>Yape, Plin</strong> y Transferencia Bancaria.</span>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-white font-bold text-sm uppercase tracking-wider mb-4">Atención Directa</h4>
+          <p class="text-xs text-slate-400 mb-4">
+            Solicita tu evaluación de Línea de Vista (LoS) o envía tu comprobante de abono directamente a nuestro centro de gestión virtual.
+          </p>
+          <button onclick="openDirectWhatsApp()" class="w-full inline-flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-sm py-3 px-4 rounded-xl transition-all shadow-md">
+            <i data-lucide="message-circle" class="w-5 h-5"></i>
+            WhatsApp Business Oficial
+          </button>
+        </div>
+      </div>
+
+      <div class="pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+        <p>© 2026 AYNI LINK DIGITAL S.A.C. – Todos los derechos reservados. Huamanga, Ayacucho – Perú.</p>
+        <p>Equipo Fundador: M. C. Flores Quispe • A. Checcnes Chinchay • E. Escalante Hinostroza</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- FLOATING WHATSAPP & AI QUICK BUTTONS -->
+  <div class="fixed bottom-5 right-5 z-30 flex flex-col gap-3">
+    <a href="#aynibot-section" title="Preguntar a AyniBot IA" class="w-13 h-13 p-3.5 rounded-full bg-ayni-navy hover:bg-ayni-blue text-ayni-cyan shadow-xl border border-ayni-cyan/40 flex items-center justify-center transition-transform hover:scale-105">
+      <i data-lucide="sparkles" class="w-6 h-6"></i>
+    </a>
+    <button onclick="openDirectWhatsApp()" title="Contactar por WhatsApp Business" class="w-13 h-13 p-3.5 rounded-full bg-emerald-500 hover:bg-emerald-600 text-white shadow-xl flex items-center justify-center transition-transform hover:scale-105">
+      <i data-lucide="message-circle" class="w-6 h-6"></i>
+    </button>
+  </div>
+
+  <!-- MODAL: DETALLES TÉCNICOS DEL PRODUCTO / PLAN -->
+  <div id="detail-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm">
+    <div class="bg-white rounded-3xl max-w-lg w-full overflow-hidden shadow-2xl border border-slate-200 animate-fade-in">
+      <div class="bg-ayni-navy text-white px-6 py-5 flex items-center justify-between">
+        <div>
+          <span id="modal-category" class="text-[11px] font-bold uppercase tracking-widest text-ayni-cyan">Detalle Técnico</span>
+          <h3 id="modal-title" class="text-xl font-extrabold mt-0.5">Nombre del Producto</h3>
+        </div>
+        <button onclick="closeDetailModal()" class="p-2 rounded-xl bg-white/10 hover:bg-white/20 text-white">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+      <div class="p-6 space-y-5">
+        <p id="modal-desc" class="text-sm text-slate-600 leading-relaxed"></p>
+        
+        <div class="bg-slate-50 rounded-2xl p-4 border border-slate-200/80">
+          <h4 class="text-xs font-bold uppercase tracking-wider text-ayni-navy mb-3 flex items-center gap-1.5">
+            <i data-lucide="cpu" class="w-4 h-4 text-ayni-blue"></i> Especificaciones & Componentes Incluidos
+          </h4>
+          <ul id="modal-specs" class="space-y-2 text-sm text-slate-700">
+            <!-- Injected via JS -->
+          </ul>
+        </div>
+
+        <div class="flex items-center justify-between pt-2 border-t border-slate-100">
+          <div>
+            <span class="text-xs text-slate-500 block">Inversión / Tarifa</span>
+            <span id="modal-price" class="text-2xl font-extrabold text-ayni-navy">S/ 0.00</span>
+          </div>
+          <button id="modal-add-btn" class="bg-ayni-blue hover:bg-ayni-navy text-white font-bold px-6 py-3.5 rounded-xl inline-flex items-center gap-2 transition-all shadow-md">
+            <i data-lucide="shopping-cart" class="w-4 h-4"></i> Agregar al Pedido
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. DRAWER LATERAL: CARRITO & CHECKOUT INTELIGENTE -->
+  <div id="cart-drawer-overlay" onclick="toggleCart(false)" class="fixed inset-0 z-50 hidden bg-slate-900/60 backdrop-blur-sm transition-opacity"></div>
+  <aside id="cart-drawer" class="fixed top-0 right-0 bottom-0 z-50 w-full max-w-md bg-white shadow-2xl transform translate-x-full transition-transform duration-300 flex flex-col">
+    
+    <!-- Drawer Header -->
+    <div class="bg-ayni-navy text-white px-6 py-5 flex items-center justify-between shrink-0">
+      <div class="flex items-center gap-2.5">
+        <i data-lucide="shopping-bag" class="w-5 h-5 text-ayni-cyan"></i>
+        <h3 class="font-bold text-lg">Tu Pedido & Cotización</h3>
+      </div>
+      <button onclick="toggleCart(false)" class="p-2 rounded-xl bg-white/10 hover:bg-white/20 text-white">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+    </div>
+
+    <!-- Drawer Body (Scrollable) -->
+    <div class="flex-1 overflow-y-auto p-6 space-y-6">
+      
+      <!-- Cart Items List -->
+      <div id="cart-items-container" class="space-y-3">
+        <!-- Injected via JS -->
+      </div>
+
+      <!-- Checkout Form -->
+      <div id="checkout-form-section" class="border-t border-slate-200 pt-5 space-y-4">
+        <h4 class="font-bold text-sm text-ayni-navy flex items-center gap-2">
+          <i data-lucide="map-pin" class="w-4 h-4 text-ayni-blue"></i> Datos para Factibilidad LoS y Despacho
+        </h4>
+
+        <div>
+          <label class="block text-xs font-semibold text-slate-600 mb-1">Nombre Completo / Negocio *</label>
+          <input type="text" id="cust-name" placeholder="Ej. Juan Pérez / Bodega San Martín" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm focus:border-ayni-blue outline-none" />
+        </div>
+
+        <div>
+          <label class="block text-xs font-semibold text-slate-600 mb-1">Distrito / Comunidad en Ayacucho *</label>
+          <select id="cust-district" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm bg-white focus:border-ayni-blue outline-none">
+            <option value="San Juan Bautista">San Juan Bautista (Base Operativa)</option>
+            <option value="Huamanga Centro / Periurbano">Huamanga (Zona Periurbana)</option>
+            <option value="San José de Ticllas">San José de Ticllas</option>
+            <option value="Socos">Socos</option>
+            <option value="Chiara">Chiara</option>
+            <option value="Quinua">Quinua</option>
+            <option value="Vinchos">Vinchos</option>
+            <option value="Otra comunidad de Ayacucho">Otra comunidad de Ayacucho</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block text-xs font-semibold text-slate-600 mb-1">Referencia o Coordenadas GPS (Opcional)</label>
+          <input type="text" id="cust-ref" placeholder="Ej. Cerca a la plaza principal o posta médica" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm focus:border-ayni-blue outline-none" />
+        </div>
+
+        <div>
+          <label class="block text-xs font-semibold text-slate-600 mb-1.5">Método de Pago Preferido</label>
+          <div class="grid grid-cols-3 gap-2">
+            <label class="cursor-pointer">
+              <input type="radio" name="payment-method" value="Yape" checked class="peer sr-only" />
+              <div class="text-center py-2.5 px-2 rounded-xl border border-slate-200 peer-checked:border-purple-600 peer-checked:bg-purple-50 peer-checked:text-purple-800 text-xs font-bold transition-all">
+                💜 Yape
+              </div>
+            </label>
+            <label class="cursor-pointer">
+              <input type="radio" name="payment-method" value="Plin" class="peer sr-only" />
+              <div class="text-center py-2.5 px-2 rounded-xl border border-slate-200 peer-checked:border-teal-600 peer-checked:bg-teal-50 peer-checked:text-teal-800 text-xs font-bold transition-all">
+                🩵 Plin
+              </div>
+            </label>
+            <label class="cursor-pointer">
+              <input type="radio" name="payment-method" value="Transferencia Bancaria" class="peer sr-only" />
+              <div class="text-center py-2.5 px-2 rounded-xl border border-slate-200 peer-checked:border-ayni-blue peer-checked:bg-blue-50 peer-checked:text-ayni-blue text-xs font-bold transition-all">
+                🏦 Banco
+              </div>
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Drawer Footer -->
+    <div class="p-5 bg-slate-50 border-t border-slate-200 shrink-0 space-y-3">
+      <div class="flex items-center justify-between text-base">
+        <span class="font-semibold text-slate-600">Total Estimado:</span>
+        <span id="cart-total" class="text-2xl font-extrabold text-ayni-navy">S/ 0.00</span>
+      </div>
+      <p class="text-[11px] text-slate-500">
+        * Incluye validación previa de Línea de Vista (LoS) gratuita antes de confirmar el abono de instalación.
+      </p>
+      <div class="grid grid-cols-1 gap-2">
+        <button onclick="checkoutWhatsApp()" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-3.5 px-4 rounded-xl inline-flex items-center justify-center gap-2 shadow-md transition-all">
+          <i data-lucide="message-circle" class="w-5 h-5"></i>
+          Enviar Pedido por WhatsApp Business
+        </button>
+        <button onclick="copyOrderSummary()" class="w-full bg-white hover:bg-slate-100 text-ayni-navy border border-slate-300 font-semibold py-2.5 px-4 rounded-xl inline-flex items-center justify-center gap-2 text-xs transition-all">
+          <i data-lucide="copy" class="w-4 h-4"></i>
+          Copiar Resumen de Cotización
+        </button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- JAVASCRIPT APPLICATION LOGIC -->
+  <script>
+    // =========================================================================
+    // 1. DATOS DEL CATÁLOGO (BASADO EN EL DOCUMENTO BOM Y PLANES DE AYNI LINK)
+    // =========================================================================
+    const CATALOG_ITEMS = [
+      {
+        id: 'plan-hogar',
+        category: 'planes',
+        badge: 'Más Popular Hogares',
+        badgeColor: 'bg-blue-100 text-ayni-blue',
+        title: 'Plan Hogar Rural Básico',
+        subtitle: 'Tarifa Plana Mensual • Sin Contratos Forzosos',
+        price: 60.00,
+        unit: '/ mes',
+        icon: 'home',
+        shortDesc: 'Ideal para familias y estudiantes en zonas rurales. Navegación continua e ilimitada para clases virtuales, videollamadas y tareas.',
+        specs: [
+          'Navegación 100% ilimitada sin reducción de velocidad ni bolsas de datos.',
+          'Enlace inalámbrico estable en banda libre de 5 GHz.',
+          'Respaldo energético en Nodo Base Solar (funciona si hay corte de luz).',
+          'Soporte técnico local por WhatsApp 24/7 y visita presencial en < 24h.',
+          'Pago mensual fácil mediante Yape, Plin o transferencia.'
+        ]
+      },
+      {
+        id: 'plan-emprendedor',
+        category: 'planes',
+        badge: 'Ideal Negocios & Yape',
+        badgeColor: 'bg-purple-100 text-purple-700',
+        title: 'Plan Emprendedor Yape/Plin',
+        subtitle: 'Tarifa Plana Mensual • Prioridad Comercial',
+        price: 75.00,
+        unit: '/ mes',
+        icon: 'store',
+        shortDesc: 'Diseñado para bodegas, agentes bancarios, restaurantes y alojamientos rurales que necesitan cobrar al instante sin caídas.',
+        specs: [
+          'Prioridad de tráfico para aplicativos bancarios, Yape, Plin y POS.',
+          'Conexión simétrica optimizada y baja latencia para videollamadas.',
+          'Autonomía garantizada mediante nodos base con paneles solares 450W.',
+          'Atención preferencial en sistema de tickets GLPI.',
+          'Emisión de boleta o factura electrónica formal (SUNAT).'
+        ]
+      },
+      {
+        id: 'plan-institucional',
+        category: 'planes',
+        badge: 'Máxima Capacidad',
+        badgeColor: 'bg-cyan-100 text-ayni-deep',
+        title: 'Plan Institucional / Familia Pro',
+        subtitle: 'Tarifa Plana Mensual • Multi-dispositivo',
+        price: 90.00,
+        unit: '/ mes',
+        icon: 'building-2',
+        shortDesc: 'Máxima estabilidad y ancho de banda para escuelas comunales, postas de salud, locales comunales y hogares con múltiples dispositivos.',
+        specs: [
+          'Máximo rendimiento para múltiples usuarios simultáneos (Zoom, streaming, gestión).',
+          'Monitoreo activo 24/7 desde nuestro Centro de Operaciones de Red (NOC).',
+          'Facturación corporativa e institucional disponible.',
+          'SLA de disponibilidad de red > 98.5% respaldado por energía solar.',
+          'Sin penalidades ni contratos forzosos de permanencia.'
+        ]
+      },
+      {
+        id: 'kit-completo-bom',
+        category: 'kits',
+        badge: 'Kit Oficial BOM Completo',
+        badgeColor: 'bg-emerald-100 text-emerald-800',
+        title: 'Kit Completo de Instalación Domiciliaria',
+        subtitle: 'Hardware Ubiquiti + Instalación Profesional',
+        price: 798.00,
+        unit: 'pago único',
+        icon: 'package-check',
+        shortDesc: 'Todo lo necesario para conectar tu vivienda o negocio con materiales de alta resistencia climática para la sierra de Ayacucho.',
+        specs: [
+          '1x Antena Ubiquiti PowerBeam AC GEN2, 5 GHz, 25 dBi, 420mm, PoE (S/ 590.00).',
+          '1x Router Wi-Fi Cliente Interior 300Mbps preconfigurado (S/ 75.00).',
+          '1x Mástil Galvanizado Exterior de 1.5 metros (S/ 45.00).',
+          '25 metros de Cable UTP Exterior Cat5e/6 con protección UV (S/ 37.50).',
+          '1x Juego de conectores RJ45 blindados + cintillos/taquetes (S/ 11.00).',
+          'Incluye Mano de Obra Directa, alineación RSSI y traslado técnico (S/ 40.00).'
+        ]
+      },
+      {
+        id: 'antena-powerbeam',
+        category: 'equipos',
+        badge: 'Alto Alcance 25 dBi',
+        badgeColor: 'bg-sky-100 text-sky-800',
+        title: 'Antena CPE Ubiquiti PowerBeam AC GEN2',
+        subtitle: '5 GHz • 25 dBi • 420mm • PoE Gigabit',
+        price: 590.00,
+        unit: 'unidad',
+        icon: 'radio',
+        shortDesc: 'Antena receptora exterior de alto rendimiento con tecnología airMAX ac para enlaces inalámbricos estables de larga distancia.',
+        specs: [
+          'Frecuencia de operación: Banda libre 5 GHz con alta inmunidad al ruido.',
+          'Ganancia de antena: 25 dBi con plato reflector de 420 mm.',
+          'Interfaz de red: 1 puerto Ethernet 10/100/1000 Mbps (LAN GbE).',
+          'Alimentación: Inyector PoE pasivo incluido.',
+          'Preconfigurada en nuestra mesa de pruebas NOC lista para enlazar.'
+        ]
+      },
+      {
+        id: 'router-wifi-300',
+        category: 'equipos',
+        badge: 'Cobertura Interior',
+        badgeColor: 'bg-slate-200 text-slate-800',
+        title: 'Router Wi-Fi Interior 300Mbps',
+        subtitle: 'Distribuidor inalámbrico para el hogar',
+        price: 75.00,
+        unit: 'unidad',
+        icon: 'wifi',
+        shortDesc: 'Router Wi-Fi confiable para distribuir la señal de internet dentro de tu casa, bodega u oficina con clave personalizada.',
+        specs: [
+          'Velocidad inalámbrica de hasta 300 Mbps en 2.4 GHz.',
+          'Antenas externas de alta ganancia para atravesar muros.',
+          'Configuración de nombre de red (SSID) y contraseña segura incluida.',
+          'Puertos LAN adicionales para conectar PC, TV o decodificador.'
+        ]
+      },
+      {
+        id: 'pack-mastil-cable',
+        category: 'equipos',
+        badge: 'Resistencia Climática UV',
+        badgeColor: 'bg-amber-100 text-amber-800',
+        title: 'Pack Mástil Galvanizado 1.5m + 25m Cable UTP UV',
+        subtitle: 'Infraestructura de montaje exterior',
+        price: 82.50,
+        unit: 'pack',
+        icon: 'cable',
+        shortDesc: 'Pack estructural diseñado para soportar lluvias intensas, vientos y radiación ultravioleta de altura en Ayacucho.',
+        specs: [
+          '1x Mástil metálico galvanizado anticorrosivo de 1.5 metros.',
+          '25 metros de cable UTP Cat5e/6 con chaqueta exterior resistente a rayos UV.',
+          'Ideal para renovación de cableado o elevación de Línea de Vista (LoS).'
+        ]
+      }
+    ];
+
+    // =========================================================================
+    // 2. DATOS DE COBERTURA EN AYACUCHO
+    // =========================================================================
+    const COVERAGE_ZONES = [
+      {
+        name: 'San Juan Bautista (Base NOC)',
+        province: 'Huamanga',
+        status: 'Cobertura Activa + Base NOC',
+        statusColor: 'bg-emerald-100 text-emerald-800',
+        solar: 'Nodo Principal + Fibra Backhaul',
+        desc: 'Centro de gestión virtual, mesa de pruebas y salida directa hacia rutas rurales de Huamanga.'
+      },
+      {
+        name: 'San José de Ticllas',
+        province: 'Huamanga',
+        status: 'Cobertura Rural Activa',
+        statusColor: 'bg-emerald-100 text-emerald-800',
+        solar: 'Respaldo Solar 450W MPPT',
+        desc: 'Enlace inalámbrico 5 GHz para familias, estudiantes y comercios locales con soporte < 24h.'
+      },
+      {
+        name: 'Socos',
+        province: 'Huamanga',
+        status: 'Cobertura Rural Activa',
+        statusColor: 'bg-emerald-100 text-emerald-800',
+        solar: 'Respaldo Solar 450W MPPT',
+        desc: 'Conectividad estable en ruta hacia Vinchos, ideal para bodegas con Yape/Plin y hogares.'
+      },
+      {
+        name: 'Chiara',
+        province: 'Huamanga',
+        status: 'Cobertura Rural Activa',
+        statusColor: 'bg-emerald-100 text-emerald-800',
+        solar: 'Respaldo Solar Fotovoltaico',
+        desc: 'Cobertura en centros poblados y comunidades cercanas mediante antenas sectoriales de 120°.'
+      },
+      {
+        name: 'Quinua',
+        province: 'Huamanga',
+        status: 'Cobertura Turística & Rural',
+        statusColor: 'bg-emerald-100 text-emerald-800',
+        solar: 'Respaldo Solar Fotovoltaico',
+        desc: 'Servicio continuo para artesanos, restaurantes, hospedajes y familias de la zona.'
+      },
+      {
+        name: 'Vinchos',
+        province: 'Huamanga',
+        status: 'Expansión / Estudio LoS',
+        statusColor: 'bg-amber-100 text-amber-800',
+        solar: 'Nodo Repetidor Autónomo',
+        desc: 'Evaluación técnica domicilio por domicilio para garantizar Línea de Vista (LoS) óptima.'
+      }
+    ];
+
+    // =========================================================================
+    // 3. ESTADO DEL CARRITO Y RENDERIZADO
+    // =========================================================================
+    let cart = [];
+    let currentFilter = 'todos';
+
+    function renderCatalog(filter = 'todos') {
+      currentFilter = filter;
+      const grid = document.getElementById('catalog-grid');
+      const filtered = filter === 'todos' 
+        ? CATALOG_ITEMS 
+        : CATALOG_ITEMS.filter(item => item.category === filter);
+
+      grid.innerHTML = filtered.map(item => `
+        <div class="bg-white rounded-3xl border border-slate-200/90 p-6 flex flex-col justify-between shadow-sm hover:shadow-xl hover:border-ayni-sky/50 transition-all duration-300 group">
+          <div>
+            <div class="flex items-center justify-between gap-2 mb-4">
+              <span class="text-xs font-bold px-3 py-1 rounded-full ${item.badgeColor}">
+                ${item.badge}
+              </span>
+              <div class="w-10 h-10 rounded-2xl bg-slate-100 group-hover:bg-ayni-navy group-hover:text-ayni-cyan text-ayni-navy flex items-center justify-center transition-colors">
+                <i data-lucide="${item.icon}" class="w-5 h-5"></i>
+              </div>
+            </div>
+
+            <h3 class="text-xl font-extrabold text-ayni-navy leading-snug">${item.title}</h3>
+            <p class="text-xs font-semibold text-ayni-blue mt-1">${item.subtitle}</p>
+            <p class="text-sm text-slate-600 mt-3 leading-relaxed">${item.shortDesc}</p>
+          </div>
+
+          <div class="mt-6 pt-5 border-t border-slate-100">
+            <div class="flex items-baseline justify-between mb-4">
+              <div>
+                <span class="text-2xl font-extrabold text-ayni-navy">S/ ${item.price.toFixed(2)}</span>
+                <span class="text-xs font-medium text-slate-500 ml-1">${item.unit}</span>
+              </div>
+              <button onclick="openDetailModal('${item.id}')" class="text-xs font-bold text-ayni-blue hover:text-ayni-navy underline underline-offset-4">
+                Ver Detalles Técnicos
+              </button>
+            </div>
+
+            <button onclick="addToCart('${item.id}')" class="w-full bg-ayni-navy hover:bg-ayni-blue text-white font-bold py-3 px-4 rounded-xl inline-flex items-center justify-center gap-2 transition-all active:scale-95 shadow-sm">
+              <i data-lucide="plus-circle" class="w-4 h-4 text-ayni-cyan"></i>
+              Agregar al Carrito
+            </button>
+          </div>
+        </div>
+      `).join('');
+
+      lucide.createIcons();
+    }
+
+    function filterCatalog(filter) {
+      document.querySelectorAll('.filter-btn').forEach(btn => {
+        if (btn.dataset.filter === filter) {
+          btn.classList.remove('bg-white', 'text-slate-700', 'border', 'border-slate-200');
+          btn.classList.add('bg-ayni-navy', 'text-white', 'shadow-sm');
+        } else {
+          btn.classList.add('bg-white', 'text-slate-700', 'border', 'border-slate-200');
+          btn.classList.remove('bg-ayni-navy', 'text-white', 'shadow-sm');
+        }
+      });
+      renderCatalog(filter);
+    }
+
+    function renderCoverage() {
+      const grid = document.getElementById('coverage-grid');
+      grid.innerHTML = COVERAGE_ZONES.map(zone => `
+        <div class="bg-white rounded-3xl border border-slate-200 p-6 shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between gap-2 mb-3">
+              <span class="text-xs font-bold px-3 py-1 rounded-full ${zone.statusColor}">
+                ${zone.status}
+              </span>
+              <span class="text-xs font-semibold text-slate-400">${zone.province}</span>
+            </div>
+            <h3 class="text-lg font-extrabold text-ayni-navy">${zone.name}</h3>
+            <div class="inline-flex items-center gap-1.5 text-xs font-semibold text-amber-700 bg-amber-50 px-2.5 py-1 rounded-lg mt-2">
+              <i data-lucide="sun" class="w-3.5 h-3.5"></i> ${zone.solar}
+            </div>
+            <p class="text-sm text-slate-600 mt-3 leading-relaxed">${zone.desc}</p>
+          </div>
+          <div class="mt-5 pt-4 border-t border-slate-100">
+            <button onclick="requestLoSForZone('${zone.name}')" class="w-full py-2.5 px-4 rounded-xl bg-slate-100 hover:bg-ayni-navy hover:text-white text-ayni-navy font-bold text-xs inline-flex items-center justify-center gap-2 transition-colors">
+              <i data-lucide="compass" class="w-4 h-4"></i>
+              Solicitar Estudio Línea de Vista (LoS)
+            </button>
+          </div>
+        </div>
+      `).join('');
+      lucide.createIcons();
+    }
+
+    function requestLoSForZone(zoneName) {
+      const select = document.getElementById('cust-district');
+      for (let i = 0; i < select.options.length; i++) {
+        if (zoneName.includes(select.options[i].value)) {
+          select.selectedIndex = i;
+          break;
+        }
+      }
+      if (cart.length === 0) {
+        addToCart('kit-completo-bom', false);
+        addToCart('plan-hogar', false);
+      }
+      toggleCart(true);
+      showToast(`Zona seleccionada: ${zoneName}. Completa tus datos para validar Línea de Vista.`);
+    }
+
+    // =========================================================================
+    // 4. MODAL DETALLES TÉCNICOS
+    // =========================================================================
+    function openDetailModal(itemId) {
+      const item = CATALOG_ITEMS.find(i => i.id === itemId);
+      if (!item) return;
+
+      document.getElementById('modal-category').textContent = item.badge;
+      document.getElementById('modal-title').textContent = item.title;
+      document.getElementById('modal-desc').textContent = item.shortDesc;
+      document.getElementById('modal-price').textContent = `S/ ${item.price.toFixed(2)} (${item.unit})`;
+
+      const specsList = document.getElementById('modal-specs');
+      specsList.innerHTML = item.specs.map(s => `
+        <li class="flex items-start gap-2">
+          <i data-lucide="check" class="w-4 h-4 text-ayni-blue shrink-0 mt-0.5"></i>
+          <span>${s}</span>
+        </li>
+      `).join('');
+
+      const addBtn = document.getElementById('modal-add-btn');
+      addBtn.onclick = () => {
+        addToCart(item.id);
+        closeDetailModal();
+      };
+
+      const modal = document.getElementById('detail-modal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+      lucide.createIcons();
+    }
+
+    function closeDetailModal() {
+      const modal = document.getElementById('detail-modal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+
+    // =========================================================================
+    // 5. FUNCIONES DEL CARRITO DE PEDIDOS
+    // =========================================================================
+    function addToCart(itemId, notify = true) {
+      const item = CATALOG_ITEMS.find(i => i.id === itemId);
+      if (!item) return;
+
+      const existing = cart.find(c => c.id === itemId);
+      if (existing) {
+        existing.qty += 1;
+      } else {
+        cart.push({ ...item, qty: 1 });
+      }
+
+      updateCartUI();
+      if (notify) {
+        showToast(`Agregado: ${item.title}`);
+      }
+    }
+
+    function changeQty(itemId, delta) {
+      const idx = cart.findIndex(c => c.id === itemId);
+      if (idx === -1) return;
+
+      cart[idx].qty += delta;
+      if (cart[idx].qty <= 0) {
+        cart.splice(idx, 1);
+      }
+      updateCartUI();
+    }
+
+    function updateCartUI() {
+      const badge = document.getElementById('cart-badge');
+      const totalItems = cart.reduce((acc, item) => acc + item.qty, 0);
+      badge.textContent = totalItems;
+
+      const container = document.getElementById('cart-items-container');
+      const totalEl = document.getElementById('cart-total');
+
+      if (cart.length === 0) {
+        container.innerHTML = `
+          <div class="text-center py-8 px-4 bg-slate-50 rounded-2xl border border-dashed border-slate-300">
+            <i data-lucide="shopping-cart" class="w-10 h-10 text-slate-400 mx-auto mb-2"></i>
+            <p class="text-sm font-bold text-slate-700">Tu carrito está vacío</p>
+            <p class="text-xs text-slate-500 mt-1">Agrega un plan mensual o el Kit de Instalación BOM para cotizar tu servicio.</p>
+          </div>
+        `;
+        totalEl.textContent = 'S/ 0.00';
+      } else {
+        container.innerHTML = cart.map(item => `
+          <div class="flex items-center justify-between gap-3 bg-slate-50 p-3.5 rounded-2xl border border-slate-200/80">
+            <div class="flex-1 min-w-0">
+              <p class="text-sm font-bold text-ayni-navy truncate">${item.title}</p>
+              <p class="text-xs text-slate-500">S/ ${item.price.toFixed(2)} c/u (${item.unit})</p>
+            </div>
+            <div class="flex items-center gap-2">
+              <button onclick="changeQty('${item.id}', -1)" class="w-7 h-7 rounded-lg bg-white border border-slate-300 flex items-center justify-center text-slate-700 hover:bg-slate-100 font-bold">-</button>
+              <span class="text-sm font-bold w-5 text-center">${item.qty}</span>
+              <button onclick="changeQty('${item.id}', 1)" class="w-7 h-7 rounded-lg bg-white border border-slate-300 flex items-center justify-center text-slate-700 hover:bg-slate-100 font-bold">+</button>
+            </div>
+          </div>
+        `).join('');
+
+        const sum = cart.reduce((acc, item) => acc + (item.price * item.qty), 0);
+        totalEl.textContent = `S/ ${sum.toFixed(2)}`;
+      }
+      lucide.createIcons();
+    }
+
+    function toggleCart(open) {
+      const overlay = document.getElementById('cart-drawer-overlay');
+      const drawer = document.getElementById('cart-drawer');
+      if (open) {
+        overlay.classList.remove('hidden');
+        setTimeout(() => drawer.classList.remove('translate-x-full'), 10);
+      } else {
+        drawer.classList.add('translate-x-full');
+        setTimeout(() => overlay.classList.add('hidden'), 300);
+      }
+    }
+
+    function buildOrderText() {
+      const name = document.getElementById('cust-name').value.trim() || 'Cliente Interesado';
+      const district = document.getElementById('cust-district').value;
+      const ref = document.getElementById('cust-ref').value.trim() || 'Por coordinar';
+      const payment = document.querySelector('input[name="payment-method"]:checked')?.value || 'Yape';
+
+      const itemsLines = cart.length > 0
+        ? cart.map(i => `• ${i.qty}x ${i.title} — S/ ${(i.price * i.qty).toFixed(2)}`).join('\n')
+        : '• Solicitud general de evaluación de Línea de Vista (LoS) y Planes';
+
+      const total = cart.reduce((acc, i) => acc + (i.price * i.qty), 0);
+
+      return `🌐 *SOLICITUD AYNI LINK DIGITAL S.A.C.*\n` +
+             `-----------------------------------\n` +
+             `👤 *Cliente/Negocio:* ${name}\n` +
+             `📍 *Distrito/Comunidad:* ${district}\n` +
+             `🧭 *Referencia/GPS:* ${ref}\n` +
+             `💳 *Pago preferido:* ${payment}\n\n` +
+             `🛒 *Detalle del Pedido / Servicio:*\n${itemsLines}\n\n` +
+             `💰 *Total Estimado:* S/ ${total.toFixed(2)}\n` +
+             `-----------------------------------\n` +
+             `Solicito validación de factibilidad Línea de Vista (LoS) y programación.`;
+    }
+
+    function checkoutWhatsApp() {
+      const text = encodeURIComponent(buildOrderText());
+      // Número corporativo referencial de Ayacucho (+51)
+      window.open(`https://wa.me/51966000000?text=${text}`, '_blank');
+    }
+
+    function copyOrderSummary() {
+      const text = buildOrderText();
+      const tempInput = document.createElement('textarea');
+      tempInput.value = text;
+      document.body.appendChild(tempInput);
+      tempInput.select();
+      document.execCommand('copy');
+      document.body.removeChild(tempInput);
+      showToast('Resumen de cotización copiado al portapapeles.');
+    }
+
+    function openDirectWhatsApp() {
+      const msg = encodeURIComponent('Hola AYNI LINK DIGITAL S.A.C. 👋 Quisiera información sobre cobertura de internet inalámbrico y planes en Ayacucho.');
+      window.open(`https://wa.me/51966000000?text=${msg}`, '_blank');
+    }
+
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobile-menu');
+      menu.classList.toggle('hidden');
+    }
+
+    function showToast(message) {
+      const container = document.getElementById('toast-container');
+      const toast = document.createElement('div');
+      toast.className = 'bg-ayni-navy text-white text-xs font-semibold px-4 py-3 rounded-xl shadow-xl border border-ayni-cyan/40 flex items-center gap-2 transition-all';
+      toast.innerHTML = `<i data-lucide="check-circle" class="w-4 h-4 text-ayni-cyan shrink-0"></i><span>${message}</span>`;
+      container.appendChild(toast);
+      lucide.createIcons();
+      setTimeout(() => {
+        toast.style.opacity = '0';
+        setTimeout(() => toast.remove(), 300);
+      }, 3000);
+    }
+
+    // =========================================================================
+    // 6. ASISTENTE VIRTUAL INTELIGENTE "AYNIBOT" (GEMINI API + FALLBACK LOCAL)
+    // =========================================================================
+    const SYSTEM_PROMPT_AYNIBOT = `
+Eres "AyniBot", el asistente virtual oficial e inteligente de AYNI LINK DIGITAL S.A.C., un proveedor de internet inalámbrico rural (WISP) y tienda de equipamiento de conectividad ubicado en San Juan Bautista, provincia de Huamanga, región Ayacucho, Perú.
+
+Tu personalidad: Amable, cercano, respetuoso con las comunidades rurales y emprendedores de Ayacucho, claro y técnicamente preciso. Puedes saludar ocasionalmente con "¡Allillanchu!" o "¡Hola!".
+
+Conocimiento oficial de AYNI LINK DIGITAL S.A.C. que debes usar:
+1. Planes Mensuales (Tarifa plana ilimitada, sin degradación ni bolsas de datos, sin contratos forzosos):
+   - Plan Hogar Rural Básico: S/ 60/mes (ideal para familias, estudiantes, clases virtuales, Zoom y tareas).
+   - Plan Emprendedor Yape/Plin: S/ 75/mes (prioridad para bodegas, agentes bancarios, restaurantes y pequeños negocios que cobran por Yape/Plin).
+   - Plan Institucional / Familia Pro: S/ 90/mes (máxima estabilidad para escuelas, centros de salud, locales comunales y hogares con muchos dispositivos).
+2. Tienda de Kits y Equipos (BOM oficial):
+   - Kit Completo de Instalación Domiciliaria: S/ 798.00 (incluye Antena Ubiquiti PowerBeam AC GEN2 5GHz 25dBi S/590, Router Wi-Fi interior 300Mbps S/75, Mástil galvanizado 1.5m S/45, 25m cable UTP exterior UV S/37.50, conectores RJ45 blindados S/11 y mano de obra/traslado S/40).
+   - Antena Receptora CPE Ubiquiti PowerBeam AC GEN2 5GHz 25dBi: S/ 590.00.
+   - Router Wi-Fi Interior 300Mbps: S/ 75.00.
+   - Pack Mástil Galvanizado 1.5m + 25m Cable UTP Exterior UV: S/ 82.50.
+3. Cobertura y Ubicación:
+   - Base operativa y NOC en San Juan Bautista (Huamanga, Ayacucho).
+   - Cobertura en rutas rurales y periurbanas: San Juan Bautista, San José de Ticllas, Socos, Chiara, Quinua y Vinchos.
+   - Requisito técnico clave: Línea de Vista (LoS) limpia sin cerros ni árboles altos entre el techo del cliente y nuestra estación base. La evaluación LoS es gratuita antes de pagar.
+4. Diferenciadores clave:
+   - Respaldo Solar Fotovoltaico: Nodos base con paneles de 450W, controladores MPPT y baterías de ciclo profundo. Si se va la luz en la comunidad, el internet sigue funcionando.
+   - Soporte técnico local en Ayacucho en menos de 24 horas (< 24h), atención por WhatsApp Business 24/7 y sistema de tickets GLPI.
+   - Equipos preconfigurados en mesa de pruebas (instalación en campo toma aprox. 4 horas).
+   - Pagos digitales: Yape, Plin y transferencia bancaria.
+
+Responde de forma concisa (máximo 2-3 párrafos cortos o viñetas), útil y orientando al usuario a agregar su plan/kit al carrito o solicitar su estudio de Línea de Vista.
+`;
+
+    let chatHistory = [];
+
+    function appendMessage(role, text) {
+      const container = document.getElementById('ai-chat-messages');
+      const wrapper = document.createElement('div');
+      wrapper.className = role === 'user' ? 'flex items-start justify-end gap-3' : 'flex items-start gap-3';
+
+      // Simple markdown formatting for bold and line breaks
+      const formattedText = text
+        .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+        .replace(/\n/g, '<br>');
+
+      if (role === 'user') {
+        wrapper.innerHTML = `
+          <div class="bg-ayni-navy text-white rounded-2xl rounded-tr-none p-4 text-sm shadow-sm max-w-[85%] leading-relaxed">
+            ${formattedText}
+          </div>
+        `;
+      } else {
+        wrapper.innerHTML = `
+          <div class="w-8 h-8 rounded-xl bg-ayni-navy text-ayni-cyan flex items-center justify-center shrink-0 mt-0.5">
+            <i data-lucide="bot" class="w-4 h-4"></i>
+          </div>
+          <div class="bg-white border border-slate-200 rounded-2xl rounded-tl-none p-4 text-sm text-slate-700 shadow-sm max-w-[85%] leading-relaxed">
+            ${formattedText}
+          </div>
+        `;
+      }
+
+      container.appendChild(wrapper);
+      container.scrollTop = container.scrollHeight;
+      lucide.createIcons();
+    }
+
+    function appendTypingIndicator() {
+      const container = document.getElementById('ai-chat-messages');
+      const id = 'typing-' + Date.now();
+      const wrapper = document.createElement('div');
+      wrapper.id = id;
+      wrapper.className = 'flex items-start gap-3';
+      wrapper.innerHTML = `
+        <div class="w-8 h-8 rounded-xl bg-ayni-navy text-ayni-cyan flex items-center justify-center shrink-0">
+          <i data-lucide="bot" class="w-4 h-4"></i>
+        </div>
+        <div class="bg-white border border-slate-200 rounded-2xl rounded-tl-none px-4 py-3 text-xs text-slate-500 shadow-sm flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-ayni-blue animate-bounce"></span>
+          <span class="w-2 h-2 rounded-full bg-ayni-sky animate-bounce" style="animation-delay: 0.15s"></span>
+          <span class="w-2 h-2 rounded-full bg-ayni-cyan animate-bounce" style="animation-delay: 0.3s"></span>
+          <span>AyniBot está analizando...</span>
+        </div>
+      `;
+      container.appendChild(wrapper);
+      container.scrollTop = container.scrollHeight;
+      lucide.createIcons();
+      return id;
+    }
+
+    function getSmartLocalFallback(query) {
+      const q = query.toLowerCase();
+      if (q.includes('solar') || q.includes('luz') || q.includes('apag')) {
+        return "Nuestras estaciones base cuentan con **paneles solares de 450W, controladores MPPT y baterías de ciclo profundo**. Esto significa que, incluso si hay un corte de energía eléctrica en tu comunidad, nuestras torres siguen transmitiendo señal sin interrupciones.";
+      }
+      if (q.includes('bodega') || q.includes('yape') || q.includes('plin') || q.includes('negocio')) {
+        return "Para tu negocio o bodega te recomiendo el **Plan Emprendedor Yape/Plin (S/ 75/mes)** con tarifa plana ilimitada, junto con nuestro **Kit Completo de Instalación Domiciliaria (S/ 798.00)** que incluye antena Ubiquiti PowerBeam AC GEN2, router Wi-Fi, mástil y 25m de cable UV.";
+      }
+      if (q.includes('los') || q.includes('vista') || q.includes('cobertura') || q.includes('socos') || q.includes('quinua') || q.includes('chiara') || q.includes('vinchos') || q.includes('ticllas')) {
+        return "Operamos desde **San Juan Bautista (Huamanga)** hacia **San José de Ticllas, Socos, Chiara, Quinua y Vinchos**. Para instalar, verificamos gratis que exista **Línea de Vista (LoS)** despejada desde el techo de tu casa hacia nuestra torre. ¡Puedes solicitarla directamente desde el carrito o la sección de Cobertura!";
+      }
+      return "¡Allillanchu! En **AYNI LINK DIGITAL S.A.C.** ofrecemos internet ilimitado desde **S/ 60/mes** (Hogar), **S/ 75/mes** (Emprendedor Yape/Plin) y **S/ 90/mes** (Institucional), además del **Kit Completo Ubiquiti por S/ 798.00**. Todos nuestros servicios incluyen respaldo solar y soporte local en Ayacucho en menos de 24 horas.";
+    }
+
+    async function callGeminiAyniBot(userText) {
+      const apiKey = ""; // Runtime key provided by environment
+      const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent?key=${apiKey}`;
+
+      chatHistory.push({ role: 'user', parts: [{ text: userText }] });
+
+      const payload = {
+        contents: chatHistory,
+        systemInstruction: {
+          parts: [{ text: SYSTEM_PROMPT_AYNIBOT }]
+        }
+      };
+
+      const delays = [1000, 2000, 4000];
+      for (let attempt = 0; attempt <= delays.length; attempt++) {
+        try {
+          const response = await fetch(apiUrl, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+          });
+
+          if (!response.ok) {
+            throw new Error(`HTTP ${response.status}`);
+          }
+
+          const data = await response.json();
+          const reply = data?.candidates?.[0]?.content?.parts?.[0]?.text;
+          if (reply) {
+            chatHistory.push({ role: 'model', parts: [{ text: reply }] });
+            return reply;
+          }
+          throw new Error('Empty response');
+        } catch (err) {
+          if (attempt < delays.length) {
+            await new Promise(res => setTimeout(res, delays[attempt]));
+          } else {
+            const fallback = getSmartLocalFallback(userText);
+            chatHistory.push({ role: 'model', parts: [{ text: fallback }] });
+            return fallback;
+          }
+        }
+      }
+    }
+
+    async function handleChatSubmit(e) {
+      e.preventDefault();
+      const input = document.getElementById('ai-chat-input');
+      const sendBtn = document.getElementById('ai-send-btn');
+      const text = input.value.trim();
+      if (!text) return;
+
+      input.value = '';
+      input.disabled = true;
+      sendBtn.disabled = true;
+
+      appendMessage('user', text);
+      const typingId = appendTypingIndicator();
+
+      const reply = await callGeminiAyniBot(text);
+
+      const typingEl = document.getElementById(typingId);
+      if (typingEl) typingEl.remove();
+
+      appendMessage('model', reply);
+
+      input.disabled = false;
+      sendBtn.disabled = false;
+      input.focus();
+    }
+
+    function sendQuickPrompt(promptText) {
+      const input = document.getElementById('ai-chat-input');
+      input.value = promptText;
+      document.getElementById('ai-send-btn').click();
+    }
+
+    function resetChat() {
+      chatHistory = [];
+      const container = document.getElementById('ai-chat-messages');
+      container.innerHTML = `
+        <div class="flex items-start gap-3">
+          <div class="w-8 h-8 rounded-xl bg-ayni-navy text-ayni-cyan flex items-center justify-center shrink-0 mt-0.5">
+            <i data-lucide="bot" class="w-4 h-4"></i>
+          </div>
+          <div class="bg-white border border-slate-200 rounded-2xl rounded-tl-none p-4 text-sm text-slate-700 shadow-sm max-w-[85%] leading-relaxed">
+            ¡Conversación reiniciada! 👋 Soy <strong>AyniBot</strong>. Pregúntame sobre nuestros planes (S/ 60 - S/ 90), el Kit de Instalación Ubiquiti (S/ 798) o cobertura en Ayacucho.
+          </div>
+        </div>
+      `;
+      lucide.createIcons();
+    }
+
+    // =========================================================================
+    // INICIALIZACIÓN
+    // =========================================================================
+    window.addEventListener('DOMContentLoaded', () => {
+      renderCatalog('todos');
+      renderCoverage();
+      updateCartUI();
+      lucide.createIcons();
+    });
+  </script>
+</body>
+</html>
